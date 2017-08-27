@@ -496,7 +496,16 @@ public class AddressBook {
         final ArrayList<HashMap<String,String>> matchedPersons = new ArrayList<>();
         for (HashMap<String,String> person : getAllPersonsInAddressBook()) {
             final Set<String> wordsInName = new HashSet<>(splitByWhitespace(getNameFromPerson(person)));
-            if (!Collections.disjoint(wordsInName, keywords)) {
+            //Create 2 temporary collections to hold lowercase for both for comparison
+            final ArrayList<String> tempWordsInName = new ArrayList<>();
+            final ArrayList<String> tempKeywords = new ArrayList<>();
+            for(String s: wordsInName){
+                tempWordsInName.add(s.toLowerCase());
+            }
+            for(String s: keywords){
+                tempKeywords.add(s.toLowerCase());
+            }
+            if (!Collections.disjoint(tempWordsInName, tempKeywords)) {
                 matchedPersons.add(person);
             }
         }
