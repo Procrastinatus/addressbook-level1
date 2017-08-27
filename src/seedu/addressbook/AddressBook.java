@@ -607,7 +607,7 @@ public class AddressBook {
 
     /**
      * (Method copied from executeListAllPersonsInAddressBook())
-     * This method doesn't actually sort the existing ArrayList, but sorts only for the current instance of the 'sort' command.
+     * This method sorts the existing ArrayList, any future operations will take place on the sorted ArrayList.
      * Displays all persons in the address book to the user; in alphabetical order of their names.
      *
      * @return feedback display message for the operation result
